@@ -19,8 +19,79 @@ model User {
   resetPasswordOTP        Int?
   resetPasswordExpiration DateTime?
   password_updated_at     DateTime?
+  pin_code                Int?
+  Quotes                  String?
+  Lenguage                String    @default("en")
   created_at              DateTime  @default(now())
   updated_at              DateTime  @default(now())
 
+  wallets      Wallet[]
+  goals        Goal[]
+  moneyRecords MoneyRecord[]
+
   @@unique([email])
+}
+
+model MoneyRecord {
+  id         String   @id() @unique() @default(uuid())
+  userId     String?
+  pocketId   String?
+  name       String
+  type       String
+  date       DateTime @default(now())
+  amount     Int
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  pocket Budget? @relation(fields: [pocketId], references: [id])
+  User   User?   @relation(fields: [userId], references: [id])
+}
+
+model Goal {
+  id          String   @id() @unique() @default(uuid())
+  userId      String?
+  name        String
+  description String?
+  attachment  String
+  amount      Int
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+
+  User User? @relation(fields: [userId], references: [id])
+}
+
+model Notification {
+  id         String   @id() @unique() @default(uuid())
+  title      String
+  msg        String
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}
+
+model Wallet {
+  id          String   @id() @unique() @default(uuid())
+  userId      String?
+  budgetId    String?
+  description String?
+  amount      Int
+  attachment  String?
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+
+  User   User?   @relation(fields: [userId], references: [id])
+  budget Budget? @relation(fields: [budgetId], references: [id])
+}
+
+model Budget {
+  id          String   @id() @unique() @default(uuid())
+  userId      String?
+  name        String
+  description String?
+  amount      Int
+  emuji       String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+
+  MoneyRecord MoneyRecord[]
+  Wallet      Wallet[]
 }
