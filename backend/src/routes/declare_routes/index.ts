@@ -8,6 +8,7 @@ export const declareRoutes = (app: Express) => {
     app.use('/', defaultRoute);
 
     app.use('/api/v1/auth', authRoute);
+    app.use('/api/v1/wallets', defaultRoute);
 
     app.use('*', errorHandler);
 };

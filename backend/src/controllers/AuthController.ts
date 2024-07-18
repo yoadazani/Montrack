@@ -13,7 +13,6 @@ import { HttpStatusCodes } from '../constants/httpStatusCodes';
 import { ValidationError } from '../errors/ValidationError';
 import { ResponseType } from '../types/ResponseType';
 import { generateCSRFToken } from '../services/auth';
-import { CSRF_SECRET } from '../constants';
 
 const login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
