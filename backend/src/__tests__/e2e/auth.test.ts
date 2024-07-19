@@ -42,7 +42,7 @@ describe('Given authController', () => {
         it('Should return status 409 and error message and property', async () => {
             // Mock the Prisma Client's user.create method to throw an error
             prismaMock.user.findFirst.mockResolvedValue(
-                authData.userData as UserType,
+                authData.userData
             )
 
             // Send a request to the signup route
@@ -64,7 +64,7 @@ describe('Given authController', () => {
         it('should return status 200 and user data', async () => {
             // Mock the Prisma Client's user.create method to throw an error
             prismaMock.user.findFirst.mockResolvedValue(
-                authData.userData as UserType,
+                authData.userData
             )
 
             const res = await request
@@ -120,7 +120,7 @@ describe('Given authController', () => {
     describe('Given me route', () => {
         it('should return status 200 and user data', async () => {
             prismaMock.user.findUnique.mockResolvedValue(
-                authData.userData as UserType,
+                authData.userData
             )
 
             const mockToken = authService.createToken(authData.userData)
@@ -192,7 +192,7 @@ describe('Given authController', () => {
             const { csrfToken: mockCsrfToken } = authService.generateCSRFToken()
 
             prismaMock.user.findFirst.mockResolvedValue(
-                authData.userData as UserType,
+                authData.userData
             )
 
             const res = await request.post('/api/v1/auth/confirm-email').send({
@@ -211,7 +211,7 @@ describe('Given authController', () => {
         })
         it('should return status 403 and error message and property', (done) => {
             prismaMock.user.findFirst.mockResolvedValue(
-                authData.userData as UserType,
+                authData.userData
             )
 
             const { csrfToken: mockCsrfToken } = authService.generateCSRFToken()
@@ -246,7 +246,7 @@ describe('Given authController', () => {
             const { csrfToken: mockCsrfToken } = authService.generateCSRFToken()
 
             prismaMock.user.findFirst.mockResolvedValue(
-                authData.userData as UserType,
+                authData.userData
             )
 
             prismaMock.user.update.mockResolvedValue({
@@ -273,7 +273,7 @@ describe('Given authController', () => {
             const { csrfToken: mockCsrfToken } = authService.generateCSRFToken()
 
             prismaMock.user.findFirst.mockResolvedValue(
-                authData.userData as UserType,
+                authData.userData
             )
 
             const res = await request.put('/api/v1/auth/reset-password').send({

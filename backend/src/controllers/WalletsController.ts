@@ -1,14 +1,18 @@
-import { Request, Response } from 'express';
-import {WalletType} from "../types/WalletType";
+import {Request, Response} from 'express';
+import * as walletsModule from '../modules/WalletsModule'
+import {AuthError} from "../errors/AuthError";
+import {ValidationError} from "../errors/ValidationError";
 
 const fetchAllWallets = async (req: Request, res: Response) => {
-    try {
-        const wallets: WalletType[] = [];
-        // TODO: Call to function from modules to fetch wallets from database here
-        res.status(200).json(wallets);
-    } catch (error) {
-        res.status(500).json(error);
-    }
+    const {userId} = req.params
+
+    if (!userId) throw new ValidationError('No userId found', 'userId')
+
+    const wallets = await walletsModule.fetchAll(userId)
+
+    if (wallets == null) throw new AuthError('Unfortunately you not authenticate')
+
+    res.status(200).json(wallets);
 }
 
 export {fetchAllWallets}

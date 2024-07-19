@@ -1,10 +1,10 @@
 export type WalletType = {
     id: string
-    userId: string
-    budgetId: string
-    description: string
+    userId?: string | null
+    budgetId?: string | null
+    description?: string | null
     amount: number
-    attachment: string
+    attachment?: string | null
     created_at: Date
     updated_at: Date
 }
