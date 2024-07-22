@@ -14,6 +14,20 @@ const fetchAll = async (userId: string): Promise<WalletType[] | null> => {
     }
 }
 
+const fetchSingle = async (walletId: string): Promise<WalletType | null> => {
+    try {
+        return await Prisma.wallet.findUnique({
+            where: {
+                id: walletId
+            }
+        })
+    } catch (error: unknown) {
+        const err = error as Error
+        throw new Error(`Error fetching wallet data => ${err.message}`)
+    }
+}
+
 export {
-    fetchAll
+    fetchAll,
+    fetchSingle
 }
