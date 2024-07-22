@@ -27,7 +27,22 @@ const fetchSingle = async (walletId: string): Promise<WalletType | null> => {
     }
 }
 
+const updateSingle = async (walletId: string, data: Partial<WalletType>): Promise<WalletType | null> => {
+    try {
+        return await Prisma.wallet.update({
+            where: {
+                id: walletId
+            },
+            data
+        })
+    } catch (error: unknown) {
+        const err = error as Error
+        throw new Error(`Error updating wallet data => ${err.message}`)
+    }
+}
+
 export {
     fetchAll,
-    fetchSingle
+    fetchSingle,
+    updateSingle
 }

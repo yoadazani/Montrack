@@ -10,7 +10,6 @@ const fetchAllWallets = async (req: Request, res: Response) => {
     res.status(200).json({wallets: wallets ?? []});
 }
 
-
 const fetchSingleWallet = async (req: Request, res: Response) => {
     const {walletId} = req.params
 
@@ -23,4 +22,17 @@ const fetchSingleWallet = async (req: Request, res: Response) => {
     res.status(200).json(wallet);
 }
 
-export {fetchAllWallets, fetchSingleWallet}
+const updateWallet = async (req: Request, res: Response) => {
+    const {walletId} = req.params
+    const {newData} = req.body
+
+    const updatedWallet = await walletsModule.updateSingle(walletId, newData)
+
+    if (!updatedWallet) {
+        throw new Error(`Failed to update wallet ${walletId}`)
+    }
+
+    res.status(200).json(updatedWallet);
+}
+
+export {fetchAllWallets, fetchSingleWallet, updateWallet}
