@@ -1,6 +1,4 @@
 import {Router} from "express";
-import { isAuthenticated } from '../middlewares/isAuthenticated';
-import { rateLimiter } from '../middlewares/rate-limiting';
 import {cacheMiddleware} from "../middlewares/cache";
 import {fetchAllWallets, fetchSingleWallet} from "../controllers/WalletsController";
 
@@ -12,8 +10,8 @@ declare module 'express-serve-static-core' {
 
 const router = Router();
 
-router.route('/all').get(cacheMiddleware, rateLimiter, fetchAllWallets);
+router.route('/all').get(cacheMiddleware, fetchAllWallets);
 
-router.route('/:walletId').get(cacheMiddleware, rateLimiter, fetchSingleWallet);
+router.route('/:walletId').get(cacheMiddleware, fetchSingleWallet);
 
 export default router;
