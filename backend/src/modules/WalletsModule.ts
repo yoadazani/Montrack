@@ -1,13 +1,8 @@
 import Prisma from '../utils/PrismaClient';
 import {WalletType} from "../types/WalletType";
-import * as authService from "../services/auth";
 
 const fetchAll = async (userId: string): Promise<WalletType[] | null> => {
     try {
-        const user = await authService.getUser('id', userId)
-
-        if (!user) return null
-
         return await Prisma.wallet.findMany({
             where: {
                 userId
