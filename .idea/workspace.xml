@@ -5,26 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="983c5cce-3b84-4792-9afe-5590a48a7871" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/app/(auth)/_layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/(auth)/login.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/(auth)/signup.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/(portected_routes)/home.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/(portected_routes)/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/+html.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/+not-found.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/_layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Button.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/Logo.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/SplashScreen.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/auth/GoogleLogin.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/auth/HaveAnAccount.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/onboarding/StepOne.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/components/onboarding/StepTwo.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/Global.styled.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/components/onboarding/Onboarding.styled.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/screens/auth/Login.styled.ts" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/schemas/wallets/updateWalletSchema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/services/wallets.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/WalletsController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/WalletsController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/WalletsRoute.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/WalletsRoute.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -81,14 +66,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "update-wallet",
     "last_opened_file_path": "C:/Users/user/Desktop/Fiver jobs/Montrack_v1/Montrack",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\user\\Desktop\\Fiver jobs\\Montrack_v1\\Montrack\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\user\\Desktop\\Fiver jobs\\Montrack_v1\\Montrack\\backend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -110,6 +95,8 @@
       <workItem from="1719172228289" duration="5268000" />
       <workItem from="1719222704330" duration="665000" />
       <workItem from="1720789483259" duration="2903000" />
+      <workItem from="1720792561246" duration="840000" />
+      <workItem from="1721817188547" duration="2579000" />
     </task>
     <servers />
   </component>

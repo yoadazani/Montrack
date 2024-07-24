@@ -1,6 +1,7 @@
 import {Router} from "express";
 import {cacheMiddleware} from "../middlewares/cache";
 import {fetchAllWallets, fetchSingleWallet, updateWallet} from "../controllers/WalletsController";
+import {csrfMiddleware} from "../middlewares/csrf";
 
 declare module 'express-serve-static-core' {
     interface Request {
@@ -14,6 +15,6 @@ router.route('/all').get(cacheMiddleware, fetchAllWallets);
 
 router.route('/:walletId')
     .get(cacheMiddleware, fetchSingleWallet)
-    .put(cacheMiddleware, updateWallet);
+    .put(cacheMiddleware, csrfMiddleware, updateWallet);
 
 export default router;
