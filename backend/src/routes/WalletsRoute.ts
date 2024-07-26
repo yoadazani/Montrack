@@ -1,17 +1,21 @@
 import {Router} from "express";
 import {cacheMiddleware} from "../middlewares/cache";
-import {deleteWallet, fetchAllWallets, fetchSingleWallet, updateWallet} from "../controllers/WalletsController";
+import {deleteWallet, fetchAllWallets, fetchSingleWallet, updateWallet, createWallet} from "../controllers/WalletsController";
 import {csrfMiddleware} from "../middlewares/csrf";
 
 declare module 'express-serve-static-core' {
     interface Request {
         locals: Record<string, unknown>;
     }
+
+
 }
 
 const router = Router();
 
 router.route('/all').get(cacheMiddleware, fetchAllWallets);
+
+router.route('/create').post(csrfMiddleware, createWallet)
 
 router.route('/:walletId')
     .get(cacheMiddleware, fetchSingleWallet)

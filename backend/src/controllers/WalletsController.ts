@@ -26,6 +26,18 @@ const fetchSingleWallet = async (req: Request, res: Response) => {
     res.status(HttpStatusCodes.OK).json(wallet);
 }
 
+const createWallet = async (req: Request, res: Response) => {
+    const {userId} = req.locals
+    const {newWallet} = req.body
+
+    /* TODO
+        1. Create new wallet schema
+        2. Check if req.body is valid and if it also contains csrf token for csrf protection
+        3. Create new wallet
+        4. Return response with new wallet data
+    */
+}
+
 const updateWallet = async (req: Request, res: Response) => {
     const {walletId} = req.params
     const {newData} = req.body
@@ -87,4 +99,4 @@ const deleteWallet = async (req: Request, res: Response) => {
     res.status(HttpStatusCodes.OK).json(response);
 }
 
-export {fetchAllWallets, fetchSingleWallet, updateWallet, deleteWallet}
+export {fetchAllWallets, fetchSingleWallet, updateWallet, deleteWallet, createWallet}
