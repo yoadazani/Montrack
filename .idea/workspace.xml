@@ -7,6 +7,7 @@
     <list default="true" id="983c5cce-3b84-4792-9afe-5590a48a7871" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/WalletsController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/WalletsController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/wallets.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/wallets.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +34,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="update-wallet" />
+                    <option name="lastUsedInstant" value="1721997122" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="delete-wallet" />
                     <option name="lastUsedInstant" value="1721820482" />
@@ -71,7 +76,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "delete-wallet",
+    "git-widget-placeholder": "update-wallet",
     "last_opened_file_path": "C:/Users/user/Desktop/Fiver jobs/Montrack_v1/Montrack",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -102,6 +107,7 @@
       <workItem from="1720789483259" duration="2903000" />
       <workItem from="1720792561246" duration="840000" />
       <workItem from="1721817188547" duration="2579000" />
+      <workItem from="1721997101824" duration="382000" />
     </task>
     <servers />
   </component>
