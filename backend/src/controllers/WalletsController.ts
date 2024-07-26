@@ -8,6 +8,7 @@ import * as walletsService from "../services/wallets";
 import {ResponseType} from "../types/ResponseType";
 import {WalletType} from "../types/WalletType";
 import {HttpStatusCodes} from "../constants/httpStatusCodes";
+import {deleteWalletSchema} from "../schemas/wallets/deleteWalletSchema";
 
 const fetchAllWallets = async (req: Request, res: Response) => {
     const {userId} = req.locals
@@ -29,6 +30,7 @@ const updateWallet = async (req: Request, res: Response) => {
     const {walletId} = req.params
     const {newData} = req.body
 
+    // check if req.body is valid and if it also contains csrf token for csrf protection
     const validated: ValidationResult = updateWalletSchema.validate(req.body);
 
     if (validated.error) {
@@ -57,6 +59,16 @@ const updateWallet = async (req: Request, res: Response) => {
 
 const deleteWallet = async (req: Request, res: Response) => {
     const {walletId} = req.params
+
+    // check if req.body contain csrf token for csrf protection
+    const validated: ValidationResult = deleteWalletSchema.validate(req.body);
+
+    if (validated.error) {
+        const errorMessage = validated.error.message;
+        const errorProperty = validated.error.details[0].path[0];
+
+        throw new ValidationError(errorMessage, errorProperty as string);
+    }
 
     // check if wallet exists
     await walletsService.findWallet(walletId)
