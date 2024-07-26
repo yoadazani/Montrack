@@ -41,8 +41,22 @@ const updateSingle = async (walletId: string, data: Partial<WalletType>): Promis
     }
 }
 
+const deleteSingle = async (walletId: string): Promise<WalletType | null> => {
+    try {
+        return await Prisma.wallet.delete({
+            where: {
+                id: walletId
+            }
+        })
+    } catch (error: unknown) {
+        const err = error as Error
+        throw new Error(`Error deleting wallet data => ${err.message}`)
+    }
+}
+
 export {
     fetchAll,
     fetchSingle,
-    updateSingle
+    updateSingle,
+    deleteSingle
 }

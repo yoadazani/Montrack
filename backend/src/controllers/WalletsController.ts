@@ -7,13 +7,14 @@ import {ValidationError} from "../errors/ValidationError";
 import * as walletsService from "../services/wallets";
 import {ResponseType} from "../types/ResponseType";
 import {WalletType} from "../types/WalletType";
+import {HttpStatusCodes} from "../constants/httpStatusCodes";
 
 const fetchAllWallets = async (req: Request, res: Response) => {
     const {userId} = req.locals
 
     const wallets = await walletsModule.fetchAll(userId as string)
 
-    res.status(200).json({wallets: wallets ?? []});
+    res.status(HttpStatusCodes.OK).json({wallets: wallets ?? []});
 }
 
 const fetchSingleWallet = async (req: Request, res: Response) => {
@@ -21,7 +22,7 @@ const fetchSingleWallet = async (req: Request, res: Response) => {
 
     const wallet = await walletsService.findWallet(walletId)
 
-    res.status(200).json(wallet);
+    res.status(HttpStatusCodes.OK).json(wallet);
 }
 
 const updateWallet = async (req: Request, res: Response) => {
@@ -51,7 +52,27 @@ const updateWallet = async (req: Request, res: Response) => {
         },
     };
 
-    res.status(200).json(response);
+    res.status(HttpStatusCodes.OK).json(response);
 }
 
-export {fetchAllWallets, fetchSingleWallet, updateWallet}
+const deleteWallet = async (req: Request, res: Response) => {
+    const {walletId} = req.params
+
+    // check if wallet exists
+    await walletsService.findWallet(walletId)
+
+    const deletedWallet = await walletsModule.deleteSingle(walletId)
+
+    if (!deletedWallet) throw new Error(`Failed to delete wallet ${walletId}`)
+
+    const response: ResponseType<{ deletedWallet: WalletType}> = {
+        message: 'Wallet deleted successfully!',
+        data: {
+            deletedWallet,
+        },
+    };
+
+    res.status(HttpStatusCodes.OK).json(response);
+}
+
+export {fetchAllWallets, fetchSingleWallet, updateWallet, deleteWallet}
